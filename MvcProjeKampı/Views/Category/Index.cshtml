@@ -2,31 +2,28 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <title>Index</title>
 </head>
 <body>
    <h3>mvc kamp tablo orneği</h3>
-   <table>
+   <table class="table table-hover">
        <tr>
            <th>id</th>
            <th>adi</th>
-           <th>açıklama</th>
+           <th>açiklama</th>
            <th>durum</th>
-       </tr>
-       @foreach (var item in collection)
-       {
-           <tr>
-
-               <td></td>
-           </tr>
-       }
+           <th>guncelle</th>
+       </tr>      
 
    </table>
+    <button class="btn btn-info">yeni kategori</button>
+    <button class="btn btn-warning">kategori listele</button>
+    <button class="btn btn-danger">kategori açıklamaları</button>
 </body>
 </html>
