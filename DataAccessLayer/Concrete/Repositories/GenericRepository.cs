@@ -20,28 +20,39 @@ namespace DataAccessLayer.Concrete.Repositories
         }
         public void Delete(T p)
         {
-            _object.Remove(p);
+            var deletedEntity = c.Entry(p);
+            deletedEntity.State = EntityState.Deleted;
+            //_object.Remove(p);
             c.SaveChanges();
+        }
+
+        public T Get(Expression<Func<T, bool>> filter) //id si istelen
+        {
+            return _object.SingleOrDefault(filter);        
         }
 
         public void Insert(T p)
         {
-            _object.Add(p);
+            var addedEntity = c.Entry(p);
+            addedEntity.State = EntityState.Added;
+            //_object.Add(p);
             c.SaveChanges();
         }
 
-        public List<T> List()
+        public List<T> List() //hepsini getir
         {
             return _object.ToList();
         }
 
-        public List<T> List(Expression<Func<T, bool>> filter)
+        public List<T> List(Expression<Func<T, bool>> filter) //parametreli  ismi ali olanları listelemek için 
         {
             return _object.Where(filter).ToList();
         }
 
         public void Update(T p)
         {
+            var updatedEntity = c.Entry(p);
+            updatedEntity.State = EntityState.Modified;
             c.SaveChanges();
         }
     }

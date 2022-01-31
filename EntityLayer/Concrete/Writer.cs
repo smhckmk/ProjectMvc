@@ -11,16 +11,28 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int writerId { get; set; }
+
         [StringLength(50)]
         public string writerName { get; set; }
+
         [StringLength(50)]
         public string writerSurName { get; set; }
-        [StringLength(100)]
+
+        [StringLength(250)]
         public string writerImage { get; set; }
-        [StringLength(50)]
+
+        [StringLength(100)]
+        public string writerAbout { get; set; }
+
+        [StringLength(200)]
         public string writerMail { get; set; }
-        [StringLength(20)]
+
+        [StringLength(200)]
         public string writerPassword { get; set; }
+        
+        [StringLength(50)]
+        public string writerTitle { get; set; }
+        public bool writerStatus { get; set; }
 
         public ICollection<Heading> headings { get; set; }
 

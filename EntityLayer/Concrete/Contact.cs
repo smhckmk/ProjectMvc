@@ -17,7 +17,8 @@ namespace EntityLayer.Concrete
         public string userMail { get; set; }
         [StringLength(50)]
         public string subject { get; set; }
-        
+
+        public DateTime contactDate { get; set; }
         public string message { get; set; }
     }
 }
